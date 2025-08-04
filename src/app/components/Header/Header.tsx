@@ -17,7 +17,42 @@ const Header: React.FC = () => {
 
             <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', height: '100%' }}>
                 <Box sx={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                    <Image src={Logo} alt="Logo" width={40} height={40} />
+                    <Box
+                        sx={{
+                            position: 'relative',
+                            width: 40,
+                            height: 40,
+                            borderRadius: '50%',
+                            overflow: 'hidden',
+                            boxShadow: '0 0 0 3px #0b0d16ff',
+                            '&::before': {
+                                content: '""',
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                borderRadius: '50%',
+                                zIndex: 1,
+                                pointerEvents: 'none',
+                                background: 'radial-gradient(circle, #07080E 40%, #0D0D0D 100%)',
+                                filter: 'blur(8px)',
+                            },
+                        }}
+                    >
+                        <Image
+                            src={Logo}
+                            alt="Logo"
+                            width={40}
+                            height={40}
+                            style={{
+                                borderRadius: '50%',
+                                objectFit: 'cover',
+                                position: 'relative',
+                                zIndex: 2,
+                            }}
+                        />
+                    </Box>
                 </Box>
                 <Box sx={{ flex: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                     <Link
